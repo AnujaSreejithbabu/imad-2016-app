@@ -6,20 +6,36 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleOne = {
-  title: 'Article one | Anuja Gopal',
-  heading: 'Artile One',
-  date: 'Sep 28, 2016',
-  content: `<p>
-                This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
-            </p>
-            <p>
-                This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
-            </p>
-            <p>
-                This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
-            </p>`
-};
+var articles = {
+    'article-One': {
+      title: 'Article one | Anuja Gopal',
+      heading: 'Artile One',
+      date: 'Sep 28, 2016',
+      content: `<p>
+                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
+                </p>
+                <p>
+                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
+                </p>
+                <p>
+                    This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
+                </p>`
+    }, 
+    'article-Two': {
+         title: 'Article Two | Anuja Sreejithbabu',
+         heading: 'Artile Two',
+         date: 'Sep 30, 2016',
+         content: `<p>
+                    This is the content for my Second article. This is the content for my Second article. This is the content for my second article. This is the content for my second article.
+                </p>`
+    },
+    'article-Three': { title: 'Article Three | Anuja Sreejithbabu Sandra',
+          heading: 'Artile Three',
+          date: 'Sep 28, 2016',
+          content: `<p>
+                        This is the content for my third article. This is the content for my third article. This is the content for my third article. This is the content for my third article.
+                    </p>`}
+}  ;  
 function createTemplate (data) {
     var title = data.title;
     var date = data.date;
@@ -60,17 +76,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-   res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+    //ArticleName == article-one;
+    //articles[articleName] == {} content object for article one
+    var articleName = req.prams.articleName;
+   res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function (req, res) {
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
