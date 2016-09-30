@@ -21,6 +21,7 @@ var articles = {
                     This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
                 </p>`
     }, 
+    
     'article-Two': {
          title: 'Article Two | Anuja Sreejithbabu',
          heading: 'Artile Two',
@@ -29,12 +30,15 @@ var articles = {
                     This is the content for my Second article. This is the content for my Second article. This is the content for my second article. This is the content for my second article.
                 </p>`
     },
+    
     'article-Three': { title: 'Article Three | Anuja Sreejithbabu Sandra',
           heading: 'Artile Three',
           date: 'Sep 28, 2016',
           content: `<p>
                         This is the content for my third article. This is the content for my third article. This is the content for my third article. This is the content for my third article.
-                    </p>`}
+                    </p>`
+        
+    }
 }  ;  
 function createTemplate (data) {
     var title = data.title;
@@ -72,6 +76,7 @@ function createTemplate (data) {
     `;
     return htmlTemplate;
 }
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
