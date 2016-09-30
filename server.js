@@ -20,41 +20,41 @@ var articleOne = {
                 This is the content for my first article. This is the content for my first article. This is the content for my first article. This is the content for my first article.
             </p>`
 };
-function createTemplate (date) {
-    var title = date.title;
-    var date = date.date;
-    var heading = date.heading;
-    var content = date.content;
+function createTemplate (data) {
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
 
-var htmlTemplate = `
-<html>
-<head>
-        <title>
-            ${title}
-        </title>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    
-    <body>
-        <div class="container">
-            <div>
-                <a href="/">Home</a>
-            </div>    
-                <hr/>
-                <h3>
-                    ${heading}
-                </h3>
-            <div>  
-               ${date}
+    var htmlTemplate = `
+    <html>
+    <head>
+            <title>
+                ${title}
+            </title>
+            <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        
+        <body>
+            <div class="container">
+                <div>
+                    <a href="/">Home</a>
+                </div>    
+                    <hr/>
+                    <h3>
+                        ${heading}
+                    </h3>
+                <div>  
+                   ${date}
+                </div>
+                <div>
+                    ${content}
+                </div>
             </div>
-            <div>
-                ${content}
-            </div>
-        </div>
-    </body>
-</html>
-`;
-return htmlTemplate;
+        </body>
+    </html>
+    `;
+    return htmlTemplate;
 }
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
