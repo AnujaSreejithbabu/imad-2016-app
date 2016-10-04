@@ -90,11 +90,11 @@ app.get('/counter', function(req, res) {
 var names =[];
 app.get('/submit-name', function(req,res) { // URL: /submit-name?name=xxxx
     //Get the name from the request
-    var name = req.query.name; //TODO
+    var name = req.query.name;
     
     names.push(name);
     // JSON: Javascript Object Notation
-    res.send(JSON.stringify(name)); //TODO
+    res.send(JSON.stringify(name));
 }); 
 app.get('/:articleName', function (req, res) {
     //ArticleName == article-one;
