@@ -52,7 +52,7 @@ submit.onclick = function () {
    
    //Capture the response and store it in a variable
    request.onreadystatechange = function () {
-        if(request.readystate === XMLHttpRequest.DONE) {
+        if (request.readystate === XMLHttpRequest.DONE) {
              //Take some action
             if (request.status === 200) {
                 //Capture a list of names and render it as a list
