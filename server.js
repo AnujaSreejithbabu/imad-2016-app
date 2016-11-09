@@ -126,7 +126,12 @@ app.get('/submit-name', function(req,res) { // URL: /submit-name?name=xxxx
 app.get('/articles/:articleName', function (req, res) {
     //ArticleName == article-one;
     //articles[articleName] == {} content object for article one
-   
+  
+   //SELECT * FROM articles WHERE title = ''; DELETE WHERE a = 'asdf'
+  
+  
+  
+  
     
     //SELECT * FROM articles WHERE title = article-one
     pool.query("SELECT * FROM articles WHERE title = '" + req.params.articleName + "'" , function (err, result) {
