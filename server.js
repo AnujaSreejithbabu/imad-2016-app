@@ -44,7 +44,7 @@ var articles = {
     
     'article-three': { title: 'Article Three | Anuja Sreejithbabu Sandra',
           heading: 'Artile Three',
-          date: 'Sep 28, 2016',
+          date: 'Nov 12, 2016',
           content: `<p>
                         This is the content for my third article. This is the content for my third article. This is the content for my third article. This is the content for my third article.
                     </p>`
