@@ -29,25 +29,25 @@ submit.onclick = function () {
              //Take some action
             if (request.status === 200) {
                 //Capture a list of names and render it as a list
-	console.log('user logged in');
-	alert('logged in successfully');
+            	console.log('user logged in');
+	            alert('logged in successfully');
             } else if (request.status === 403) {
-	alert('Username/password is incorrect');
-} else if (request.status === 500) { 
-alert('something went wrong on the server');
-}
+	                alert('Username/password is incorrect');
+                    } else if (request.status === 500) { 
+                            alert('something went wrong on the server');
+                            }
         }
     };
     
     //make the request
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
-  console.log(username);   //for debugging purpose
-console.log(password);
+    console.log(username);   //for debugging purpose
+    console.log(password);
 
     request.open('POST', 'http://anujasreejithbabu.imad.hasura-app.io/login', true);
-   request.setRequestHeader('Content-Type', 'application/json'); 
-   request.send(JSON.stringify ({username: username, password: password}));
+    request.setRequestHeader('Content-Type', 'application/json'); 
+    request.send(JSON.stringify ({username: username, password: password}));
 };
 
 
